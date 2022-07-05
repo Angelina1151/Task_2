@@ -9,21 +9,15 @@ const getMenuItemHTML = (item) => `<li>
     <a class="menu__link" href="#" data-value="${item.value}">${item.label}</a>
   </li>`;
 */
-    
-
-
-
-var cart = {}; // корзина
-
 function loadCategory(category) {
-  //файл goods.json
+  
   showData(window.data["menu"].filter((x) => x["category"] == category));//вытаскиваем JSON
-  //$.getJSON("goods.json", goodsOut);
+
 }
 
 function showData(data) {
   // вывод на страницу
-  let out = ""
+  let out = "";
   for (var key in data) {
     out += `
 <div id ="element" class="food">
@@ -54,7 +48,9 @@ function showData(data) {
     </div>
   
   <p class="food__component_food">  
-      ${data[key].description}
+      ${
+        (data[key].description.length > 0)?data[key].description:"Описание отсутствует"
+      }
   </p>
   
   <div class="food_price">
@@ -62,6 +58,7 @@ function showData(data) {
   </div>
   <div class="food__quantity_food">
     <div class="quantity_food"><h6>Количество</h6></div>
+    
     <div class="quantity_button">
       <button class="button">
         <img
@@ -91,10 +88,24 @@ function showData(data) {
   document.getElementById("goods-out").innerHTML = out;
 }
 
-window.onload = () => {//когда у нас загружается страница вызывается эта функция
+  window.onload = () => {//когда у нас загружается страница вызывается эта функция
   loadCategory("sandwiches");//По умолчанию загружаются сендгвичи
 
   for (let el of document.getElementsByClassName("menu_link")) { //Получаем список всех ссылок на другие категории и перебираем его
     el.addEventListener("click", () => loadCategory(el.dataset.category));
   }
 };
+ /*
+ //При нажатии на кнопку "В КОРЗИНУ", если категория сходится с "sandwiches",
+ //то мы выводим поверх новое окно, в котором можем бафнуть наш сэндвич, выбрать размер, хлебушек,соусы, доп. ингридиенты,
+ //когда наш сэндвич готов, то мы можем выбрать кол-во и добавить в  корзину, при добавлении ингридиентов цена возрастает,
+ // к основной цене добавляем цену ингридиентов
+ //При добавлении в корзину напитков, у которых есть парамметр "volumes" мы должны вывести новое окно с выбором объема,
+ // т.к. от объема отличается цена, но этот параметр есть только у "Pepsi".
+ let new_window = "";
+  for (var key in data) {
+    new_window += ``
+  
+  }
+  window.open([url] [, windowName] [,windowFeature]);
+  */
