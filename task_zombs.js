@@ -38,7 +38,7 @@ function showData(data) {
 
   <div class="food__img_food">
     <div class="photo">
-      <img
+      <img class="size"
         src="${
           data[key].image.startsWith("/")
             ? data[key].image.substr(1)
