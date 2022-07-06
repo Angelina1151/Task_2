@@ -1,348 +1,337 @@
-.container{
-    display: grid;
-    height:900px ;
-    width:900px ;
-    padding: 0px;
-    margin: 0 auto; 
+.container {
+  display: grid;
+  height: 900px;
+  width: 900px;
+  padding: 0px;
+  margin: 0 auto;
 }
-.menu_link{
-    color:#444;
-    text-decoration: none;  
+.menu_link {
+  color: #444;
+  text-decoration: none;
 }
-h3{
-    margin: 0px;
+h3 {
+  margin: 0px;
 }
-ul{
-    margin-left: 0;
+ul {
+  margin-left: 0;
   /* Отступ слева в браузере IE и Opera */
-    padding-left: 0;
+  padding-left: 0;
   /* Отступ слева в браузере Firefox, Safari, Chrome */
 }
-li{
-     list-style-type: none;
-     width: 200px;
-     height: 45px;
+li {
+  list-style-type: none;
+  width: 200px;
+  height: 45px;
 }
 
 @font-face {
-    font-family: Roboto; 
-    src: url(fonts/Roboto.ttf);
-   }
-.body__header{
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    letter-spacing: 2px;
-    font-family: "Roboto";
-    height: 70px;
-    margin-top: -10px;
-    margin-bottom: 0px;
+  font-family: Roboto;
+  src: url(fonts/Roboto.ttf);
 }
-.menu{
-    margin-top: 0px;
-    margin-bottom: 0px;
+.body__header {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  letter-spacing: 2px;
+  font-family: "Roboto";
+  height: 70px;
+  margin-top: -10px;
+  margin-bottom: 0px;
+}
+.menu {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .body__menu {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    width: 200px;
-    height: 313px;
-    padding: 0px;
-    margin: 20px 0px 0px 0px;
-    border:0px solid rgb(227, 223, 223);
-    border-radius:5px;
-    box-shadow:0 0 12px rgba(95, 95, 96, 0.86);
-    font-weight: bold;
-    font-family: "Roboto";
-    overflow: hidden;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 200px;
+  height: 313px;
+  padding: 0px;
+  margin: 20px 0px 0px 0px;
+  border: 0px solid rgb(227, 223, 223);
+  border-radius: 5px;
+  box-shadow: 0 0 12px rgba(95, 95, 96, 0.86);
+  font-weight: bold;
+  font-family: "Roboto";
+  overflow: hidden;
 }
 .body__basket {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    padding: 0px;
-    margin: 370px 0px 0px 0px;
-    width: 200px;
-    height: 253px;
-    border-radius:0px 0px 10px 10px;
-    box-shadow:0 0 12px rgba(112, 110, 110, 0.86);
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding: 0px;
+  margin: 370px 0px 0px 0px;
+  width: 200px;
+  height: 253px;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0 0 12px rgba(112, 110, 110, 0.86);
 }
-.body__dishes{
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr;
-    /*grid-template: repeat(5, 1fr) / repeat(3, 1fr);
+.body__dishes {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  /*grid-template: repeat(5, 1fr) / repeat(3, 1fr);
     repeat(сколько в высоту элементов нужно вставить, размер элементов)
     repeat(сколько в ширину элементов нужно вставить, размер элементов)*/
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 4;
-    padding: 0px;
-    margin-top: 10px;
-    color:#444;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  padding: 0px;
+  margin-top: 10px;
+  color: #444;
 }
-.food__quantity_food{
-    text-transform:uppercase;
-    text-align: center;
+.food__quantity_food {
+  text-transform: uppercase;
+  text-align: center;
 }
-.header__text{
-     text-align: center;
-     color: #444; 
+.header__text {
+  text-align: center;
+  color: #444;
 }
-.basket_head{
-    width: 190px;
-    height: 55px;
-    background-color:#f5c300;
-    color: rgb(255, 255, 255);
-    display: flex;
-    letter-spacing: 1px;
-    border-bottom-color:#c8ad33;
-    border-bottom-width: 1px;
-    border-bottom-style:solid;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: 10px;
-    overflow: hidden;
+.basket_head {
+  width: 190px;
+  height: 55px;
+  background-color: #f5c300;
+  color: rgb(255, 255, 255);
+  display: flex;
+  letter-spacing: 1px;
+  border-bottom-color: #c8ad33;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 10px;
+  overflow: hidden;
 }
-.basket_png{
-    margin-left:15px ;
-     -webkit-filter: drop-shadow(3px 5px 1.7px #d1a600)
-            drop-shadow(4px 10px 1.7px #d1a600)
-            drop-shadow(5px 14px 1.7px #d1a600)
-            drop-shadow(6px 14px 1.7px #d1a600)
-            drop-shadow(7px 19px 1.7px #d1a600)
-            drop-shadow(8px 22px 1.7px #d1a600)
-            drop-shadow(9px 16px 1.7px #d1a600);
-    filter: drop-shadow(3px 5px 1.7px #d1a600)
-            drop-shadow(4px 10px 1.7px #d1a600)
-            drop-shadow(5px 14px 1.7px #d1a600)
-            drop-shadow(6px 14px 1.7px #d1a600)
-            drop-shadow(7px 19px 1.7px #d1a600)
-            drop-shadow(8px 22px 1.7px #d1a600)
-            drop-shadow(9px 16px 1.7px #d1a600);
-        }
- @import url('https://fonts.googleapis.com/css2?family=Piazzolla:opsz,wght@8..30,500&display=swap');
-.basket_text{
-    line-height:1px;
-    font-size: 19px;
-    font-family: 'Piazzolla', serif;
-    margin-right: 8px;
-    text-shadow: 
-    0.8px 0px 0px rgba(0,0,0,0.2);
+.basket_png {
+  margin-left: 15px;
+  filter: drop-shadow(3px 5px 1.7px #d1a600) drop-shadow(4px 10px 1.7px #d1a600)
+    drop-shadow(5px 14px 1.7px #d1a600) drop-shadow(6px 14px 1.7px #d1a600)
+    drop-shadow(7px 19px 1.7px #d1a600) drop-shadow(8px 22px 1.7px #d1a600)
+    drop-shadow(9px 16px 1.7px #d1a600);
 }
-.food{ 
-    padding: 0px;
-    margin: 0px;
-    width: 200px;
-    height: 60%;
-    min-height: 502px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@import url("https://fonts.googleapis.com/css2?family=Piazzolla:opsz,wght@8..30,500&display=swap");
+.basket_text {
+  line-height: 1px;
+  font-size: 19px;
+  font-family: "Piazzolla", serif;
+  margin-right: 8px;
+  text-shadow: 0.8px 0px 0px rgba(0, 0, 0, 0.2);
 }
-.counter{
-    display: inline-block;
-    top: 0;
-    border-radius: 6px;
-    text-align: center;
-    width: 40px;
-    height: 20px;
-    box-shadow:0 0 4px rgba(74, 74, 77, 0.86);
-    border:1px solid #ffffff;
-    /*добавить здесь размер окна со значениями*/
+.food {
+  padding: 0px;
+  margin: 0px;
+  width: 200px;
+  height: 60%;
+  min-height: 502px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.button_food{
-    background-color:#f5c300;
-    color:rgb(255, 255, 255);
-    border-radius:3px 3px 3px 3px;
-    margin-top: 15px;
-    text-align: center;
-    border:1px solid #f5c300;
-    padding: 5px 17px 5px 17px ;/*Поочередно устанавливается поля от верхнего, правого, нижнего и левого края.*/
-    border-bottom-color:rgb(82, 82, 82) ;
-    text-transform:uppercase;
-    font-weight:bold;
-    text-shadow: 0 0.8px 1px  rgba(0,0,0,0.3);
-    box-shadow:0 0 5px 2px rgba(0, 0, 0, 0.3); 
-    font-family: "Roboto";
-    width: 130px;
-    height: 28px;
-    cursor: pointer;
+.counter {
+  display: inline-block;
+  top: 0;
+  border-radius: 6px;
+  text-align: center;
+  width: 40px;
+  height: 20px;
+  box-shadow: 0 0 4px rgba(74, 74, 77, 0.86);
+  border: 1px solid #ffffff;
+  /*добавить здесь размер окна со значениями*/
 }
-.emblems{
-    margin: 0px;
-    text-align: center; 
+.button_food {
+  background-color: #f5c300;
+  color: rgb(255, 255, 255);
+  border-radius: 3px 3px 3px 3px;
+  margin-top: 15px;
+  text-align: center;
+  border: 1px solid #f5c300;
+  padding: 5px 17px 5px 17px; /*Поочередно устанавливается поля от верхнего, правого, нижнего и левого края.*/
+  border-bottom-color: rgb(82, 82, 82);
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 0 0.8px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+  font-family: "Roboto";
+  width: 130px;
+  height: 28px;
+  cursor: pointer;
 }
-.food__button_food{
-    
-    text-align: center;
-    margin-top: -15px;
-    margin-bottom:0px;
+.emblems {
+  margin: 0px;
+  text-align: center;
 }
-.button{
-    font-family: "Roboto";
-    font-size: 16px;
-    margin: 15px;
-    border-radius: 50%;
-    box-shadow:0 0 4px rgba(74, 74, 77, 0.86);
-    border:0.1px solid #ffffff;
-    background-color: white;
+.food__button_food {
+  text-align: center;
+  margin-top: -15px;
+  margin-bottom: 0px;
 }
-.food__img_food{
-    border-radius: 50%;
-    border: 8px solid #f5c300;
-    box-shadow: 0 0 7px #666;
-    height: 170px;
-    width: 160px;
-    display:inline-block;
+.button {
+  font-family: "Roboto";
+  font-size: 16px;
+  margin: 15px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(74, 74, 77, 0.86);
+  border: 0.1px solid #ffffff;
+  background-color: white;
 }
-.text__name_food{
-    display: flex;
-    align-items: center;
-    font-family: "Roboto";
-    max-width: 190px;
-    min-height: 65px;
-    max-height: 90px;
-    text-align: center;
-    margin: 15px 0px 1px 0px;
+.food__img_food {
+  border-radius: 50%;
+  border: 8px solid #f5c300;
+  box-shadow: 0 0 7px #666;
+  height: 160px;
+  width: 155px;
+  display: inline-block;
 }
-.food__component_food{
-     border-top:2px solid #656565;
-     border-bottom:2px solid #656565;
-     font-family: "Roboto";
-     box-sizing: border-box;
-     padding: 0px;
-     margin: 0px;
-     color: #444;
-     font-weight:bold;
-     font-size: 14px;
-     min-height: 95px;
-     min-width: 200px;
-     line-height: 1.5;
-     display:flex;
-     align-items: center;
-     text-align: center;
-     justify-content: center;
+.text__name_food {
+  display: flex;
+  align-items: center;
+  font-family: "Roboto";
+  max-width: 190px;
+  min-height: 65px;
+  max-height: 90px;
+  text-align: center;
+  margin: 15px 0px 1px 0px;
+}
+.food__component_food {
+  border-top: 2px solid #656565;
+  border-bottom: 2px solid #656565;
+  font-family: "Roboto";
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  color: #444;
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 95px;
+  min-width: 200px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
-.food_price{
-    color:#d96f50;
-    font-family: "Roboto";
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: -15px;
+.food_price {
+  color: #d96f50;
+  font-family: "Roboto";
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: -15px;
 }
-.quantity_food{
-    font-family: "Roboto";
-    margin-bottom: -37px;
-    font-weight:bold;
-    text-transform:uppercase;
-    text-align: center;
+.quantity_food {
+  font-family: "Roboto";
+  margin-bottom: -37px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
 }
-.photo{
-    padding-top: 0px;
-    width: 155px;
-    height: 145px;
-    clip-path: circle();
-    display: table-cell;/*не позволяет дочернему элементу выходить за грани родительского*/
-    max-width: 160px;
-    max-height: 150px;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    justify-content: space-evenly;
-    align-items: center
+.photo {
+  padding-top: 0px;
+  width: 155px;
+  height: 145px;
+  clip-path: circle();
+  max-width: 160px;
+  max-height: 150px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-evenly;
+  align-items: center;
+  
 }
-.size{
-    max-width: 80%;
-    max-height: 80%;
-    min-width: 70%;
-    min-height: 70%;
-    width: 70%;
-    height: 70%;
+.size {
+  max-width: 80%;
+  max-height: 80%;
+  min-width: 70%;
+  min-height: 70%;
+  width: 70%;
+  height: 70%;
 }
-li a{
-    display: block;
-    width:200px ;
-    height:45px ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
-li:hover{ 
-    background: #f6d000;
+li a {
+  width: 200px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-li a:hover{
-color: rgb(255, 255, 255);
+li:hover {
+  background-color: #f6d000;
 }
-.list-decor{
-    color: rgb(255, 255, 255);
-    background: #f6d000;
+
+li a:hover {
+  color: rgb(255, 255, 255);
 }
-.body_base{
-    font-family: 'Piazzolla', serif;
-    color: #444;
-    padding:1px 15px;
-    background:#f6d846;
-    border-radius:0px 0px 8px 8px;
-    height: 195px;
+
+.list-decor {
+  color: rgb(255, 255, 255);
+  background: #f6d000;
 }
-.body_text{
-    word-spacing: 30px;
-    border-bottom:2px solid #f4bd14;
-    font-size: 17px;
-    height: 22px;
-    margin-top: -15px;
+.body_base {
+  font-family: "Piazzolla", serif;
+  color: #444;
+  padding: 1px 15px;
+  background: #f6d846;
+  border-radius: 0px 0px 8px 8px;
+  height: 195px;
 }
-.body_text_1{   
-    border-bottom:2px solid #f4bd14;
-    word-spacing: 21px;
-    font-size: 17px;
-    height: 22px;
-    margin-top: -15px;
-    word-spacing: 10px;
+.body_text {
+  word-spacing: 30px;
+  border-bottom: 2px solid #f4bd14;
+  font-size: 17px;
+  height: 22px;
+  margin-top: -15px;
 }
-.body_text_2{ 
-    border-bottom:2px solid #f4bd14;
-    font-size: 17px;
-    height: 22px;
-    margin-top: -15px;
-    word-spacing: 50px;
+.body_text_1 {
+  border-bottom: 2px solid #f4bd14;
+  word-spacing: 21px;
+  font-size: 17px;
+  height: 22px;
+  margin-top: -15px;
+  word-spacing: 10px;
 }
-.button_basket{
-    text-align: center;
-    margin-top: 1px;
-    margin-bottom: 10px;
+.body_text_2 {
+  border-bottom: 2px solid #f4bd14;
+  font-size: 17px;
+  height: 22px;
+  margin-top: -15px;
+  word-spacing: 50px;
 }
-.button_text{
-    background-color:#396083;
-    color:rgb(255, 255, 255);
-    border-radius:3px 3px 3px 3px;
-    margin-top: 15px;
-    border:1px solid #396083;
-    padding: 5px 10px 5px 10px ;/*Поочередно устанавливается поля от верхнего, правого, нижнего и левого края.*/
-    text-transform:uppercase;
-    font-weight:bold;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
-    border-bottom-width: 2px;
-    border-bottom-style: solid; 
-    border-bottom-color:rgba(0,0,0,0.3) ;
-    font-family: "Roboto";
-    font-size: 13px;
-    width: 140px;
-    height: 30px;
-    cursor: pointer;
+.button_basket {
+  text-align: center;
+  margin-top: 1px;
+  margin-bottom: 10px;
 }
-.body_sum{
-    text-align: center;
-    box-sizing: padding-box;
-    font-size: 18px;
-    height: 25px;
-    margin-top: -15px;
-    margin-bottom: -5px;
+.button_text {
+  background-color: #396083;
+  color: rgb(255, 255, 255);
+  border-radius: 3px 3px 3px 3px;
+  margin-top: 15px;
+  border: 1px solid #396083;
+  padding: 5px 10px 5px 10px; /*Поочередно устанавливается поля от верхнего, правого, нижнего и левого края.*/
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0, 0, 0, 0.3);
+  font-family: "Roboto";
+  font-size: 13px;
+  width: 140px;
+  height: 30px;
+  cursor: pointer;
+}
+.body_sum {
+  text-align: center;
+  box-sizing: padding-box;
+  font-size: 18px;
+  height: 25px;
+  margin-top: -15px;
+  margin-bottom: -5px;
 }

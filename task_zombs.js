@@ -10,9 +10,7 @@ const getMenuItemHTML = (item) => `<li>
   </li>`;
 */
 function loadCategory(category) {
-  
-  showData(window.data["menu"].filter((x) => x["category"] == category));//вытаскиваем JSON
-
+  showData(window.data["menu"].filter((x) => x["category"] == category)); //вытаскиваем JSON
 }
 
 function showData(data) {
@@ -49,7 +47,9 @@ function showData(data) {
   
   <p class="food__component_food">  
       ${
-        (data[key].description.length > 0)?data[key].description:"Описание отсутствует"
+        data[key].description.length > 0
+          ? data[key].description
+          : "Описание отсутствует"
       }
   </p>
   
@@ -88,14 +88,16 @@ function showData(data) {
   document.getElementById("goods-out").innerHTML = out;
 }
 
-  window.onload = () => {//когда у нас загружается страница вызывается эта функция
-  loadCategory("sandwiches");//По умолчанию загружаются сендгвичи
+window.onload = () => {
+  //когда у нас загружается страница вызывается эта функция
+  loadCategory("sandwiches"); //По умолчанию загружаются сендгвичи
 
-  for (let el of document.getElementsByClassName("menu_link")) { //Получаем список всех ссылок на другие категории и перебираем его
+  for (let el of document.getElementsByClassName("menu_link")) {
+    //Получаем список всех ссылок на другие категории и перебираем его
     el.addEventListener("click", () => loadCategory(el.dataset.category));
   }
 };
- /*
+/*
  //При нажатии на кнопку "В КОРЗИНУ", если категория сходится с "sandwiches",
  //то мы выводим поверх новое окно, в котором можем бафнуть наш сэндвич, выбрать размер, хлебушек,соусы, доп. ингридиенты,
  //когда наш сэндвич готов, то мы можем выбрать кол-во и добавить в  корзину, при добавлении ингридиентов цена возрастает,
