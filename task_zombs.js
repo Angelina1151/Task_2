@@ -20,10 +20,8 @@ function showData(data) {
     out += `
 <div id ="element" class="food">
   <div class="emblems">
-    <img
+    <img class="size_emblems"
       src="img/103-removebg-preview.png"
-      width="210"
-      height="70"
       alt="Эмблема компании"
     />
   </div>
@@ -33,7 +31,7 @@ function showData(data) {
       <img class="size"
         src="${
           data[key].image.startsWith("/")
-            ? data[key].image.substr(1)
+            ? data[key].image.replace("/", "")
             : data[key].image
         }"
         alt="Фото ${data[key].name}"
@@ -61,7 +59,7 @@ function showData(data) {
     
     <div class="quantity_button">
       <button class="button">
-        <img
+        <img class="minus"
           src="img/minus.png"
           width="12"
           height="12"
@@ -70,17 +68,15 @@ function showData(data) {
       </button>
       <input class="counter" name="counter" type="text" value="1" />
       <button class="button">
-        <img
+        <img class="plus"
           src="img/plus.png"
-          width="15"
-          height="14"
-          alt="Знак минуса"
+          alt="Знак плюса"
         />
       </button>
     </div>
   </div>
-  <div class="food__button_food">
-  <button class="button_food">В корзину</button>
+  <div class="food__button_food" id="button" type="button">
+  <button id="openDialog" class="button_food">В корзину</button>
 </div>
 </div>
 `;
@@ -96,18 +92,71 @@ window.onload = () => {
     //Получаем список всех ссылок на другие категории и перебираем его
     el.addEventListener("click", () => loadCategory(el.dataset.category));
   }
+  var dialog = document.querySelector("dialog");
+  document.querySelector("#openDialog").onclick = function () {
+    dialog.show(); // Показываем диалоговое окно
+  };
+  document.querySelector("#closeDialog").onclick = function () {
+    dialog.close(); // Прячем диалоговое окно
+  };
 };
+
+//При нажатии на кнопку "В КОРЗИНУ", если категория сходится с "sandwiches",
+//то мы выводим поверх новое окно, в котором можем бафнуть наш сэндвич, выбрать размер, хлебушек,соусы, доп. ингридиенты,
+//когда наш сэндвич готов, то мы можем выбрать кол-во и добавить в  корзину, при добавлении ингридиентов цена возрастает,
+// к основной цене добавляем цену ингридиентов
+//При добавлении в корзину напитков, у которых есть параметр "volumes" мы должны вывести новое окно с выбором объема,
+// т.к. от объема отличается цена, но этот параметр есть только у "Pepsi".
+
+/*функция вывода нового окна*/
+let new_window = "";
+for (var key in data) {
+  new_window += ``;
+}
+let windowObjectReference;
+let windowFeatures =
+  "left=100,top=100,width=814,height=615,location=no,directories=no,status=no,resizable=no,scrollbars=no,menubar=no,toolbar=no";
+
+function openRequestedPopup() {
+  windowObjectReference = window.open(
+    "new_window.html",
+    "new_window",
+    windowFeatures
+  );
+}
+//alert(openRequestedPopup());
+/*конец ф-ии вывода нового окна*/
+
 /*
- //При нажатии на кнопку "В КОРЗИНУ", если категория сходится с "sandwiches",
- //то мы выводим поверх новое окно, в котором можем бафнуть наш сэндвич, выбрать размер, хлебушек,соусы, доп. ингридиенты,
- //когда наш сэндвич готов, то мы можем выбрать кол-во и добавить в  корзину, при добавлении ингридиентов цена возрастает,
- // к основной цене добавляем цену ингридиентов
- //При добавлении в корзину напитков, у которых есть парамметр "volumes" мы должны вывести новое окно с выбором объема,
- // т.к. от объема отличается цена, но этот параметр есть только у "Pepsi".
- let new_window = "";
-  for (var key in data) {
-    new_window += ``
-  
+/*функция вывода модального окна 
+const updateButton = document.getElementById('buttonNew');
+const newWindow = document.getElementById("newWindow");
+const selectEl = newWindow.querySelector("nav_alignment");//Метод elem.querySelector(css) возвращает первый элемент,
+//соответствующий данному CSS-селектору.
+
+const confirmBtn = newWindow.querySelector("#confirmBtn");
+
+// If a browser doesn't support the dialog, then hide the
+// dialog contents by default.
+if (typeof newWindow.showModal !== "function") {
+  newWindow.hidden = true;
+}
+// "Update details" button opens the <dialog> modally
+updateButton.addEventListener("click", function onOpen() {
+  if (typeof newWindow.showModal === "function") {
+    newWindow.showModal();
+  } else {
+    
   }
-  window.open([url] [, windowName] [,windowFeature]);
-  */
+});
+// "Favorite animal" input sets the value of the submit button
+selectEl.addEventListener("change", function onSelect(e) {
+  confirmBtn.value = selectEl.value;
+});
+// "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
+newWindow.addEventListener("close", function onClose() {
+  outputBox.value =
+    newWindow.returnValue + " button clicked - " + new Date().toString();
+});
+
+*/

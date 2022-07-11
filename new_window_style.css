@@ -3,19 +3,20 @@
   margin: -16px -8px 0px -8px;
   padding: 0;
   color: #444;
-  width: 900px;
-  height: 630px;
+  width: 800px;
+  height: 590px;
 }
 .head_window {
   background-color: #f5c300;
   color: rgb(255, 255, 255);
   width: auto;
   height: 55px;
-  margin: 0px;
+  margin-top: -25px;
   align-items: center;
   justify-content: space-around;
   font-weight: bold;
   box-shadow: 0px 2px 1px 0px rgb(191, 191, 191);
+  font-size: 22px;
 }
 .nav_alignment {
   margin-top: 30px;
@@ -24,9 +25,9 @@
 nav {
   display: block;
   margin: 15px;
-  box-shadow: 0 0 4px rgba(74, 74, 77, 0.86);
+  box-shadow: 0 0 6px rgba(119, 119, 120, 0.812);
   border-radius: 3px 3px 3px 3px;
-  width: 900px;
+  width: 800px;
   height: 40px;
   overflow: hidden;
   background-color: white;
@@ -36,7 +37,7 @@ ul {
   margin: 0;
   padding: 0;
   justify-content: space-between;
-  width: auto;
+  width: 100%;
   height: auto;
 }
 ul li {
@@ -52,7 +53,7 @@ li :hover {
   background-color: #d96746;
 }
 li a {
-  width: 150px;
+    
   height: 40px;
   display: flex;
   justify-content: center;
@@ -66,20 +67,25 @@ a {
   font-weight: bold;
 }
 .button_transition {
-  width: 95px;
-  height: 25px;
+  width: 105px;
+  height: 28px;
   background-color: #d96746;
   color: rgb(255, 255, 255);
   border: 0.1px solid #d96746;
-  border-radius: 2px 2px 2px 2px;
+  border-radius: 3px 3px 3px 3px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 0 0.8px 1px rgba(104, 104, 104, 0.551);
+  cursor: pointer;
 }
 .buttons_window {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0px 15px;
 }
 .elements_window {
   display: grid;
@@ -95,12 +101,15 @@ a {
   width: 200px;
   height: 300px;
   padding: 20px;
-  margin: 10px;
+  margin: 15px;
+  border: 0px solid #444;
+  background-color: #e0e0e0;
+  cursor: pointer;
 }
 .food:hover {
   background-color: #f6d846;
-  border-radius: 2px 2px 2px 2px;
-  box-shadow: 0 0 4px rgba(74, 74, 77, 0.86);
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 0 4px rgba(119, 119, 120, 0.86);
 }
 .food:hover span {
   border: 8px solid white;
@@ -160,13 +169,16 @@ a {
 .food_price {
   color: #d96746;
   border-top: 2px solid #858585;
-  margin: 0px 30px 0px 30px;
+  margin: 0px;
+  width: 100%;
 }
 .size_text {
   font-size: 20px;
   font-weight: bold;
+  color: #444;
 }
 footer {
-  height: 80px;
-  width: 900px;
+  height: 60px;
+  width: 800px;
+  margin-top: 10px;
 }
