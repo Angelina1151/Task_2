@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -82,7 +82,7 @@
           <div class="new_window">
           <div class="head_window">
               <p class="center_text">Что-то написано</p>
-               <button id="closeDialog" value="default" class="button_close">x</button>
+               <button id="closeDialog" value="default" class="button_close" type="button">x</button>
           </div>
       <div class="nav_alignment" id="nav_alignment">
         <nav>
@@ -102,31 +102,16 @@
             <li>
               <a class="menu_window_link" href="#" data-category="fillings">Начинка</a>
             </li>
-            <li><a class="menu_window_link" href="#">Готово!</a></li>
+            <li><a class="menu_window" href="#">Готово!</a></li>
           </ul>
         </nav>
       </div>
       <div class="buttons_window">
-        <button class="button_transition">&lt; &thinsp; Назад</button>
-        <button class="button_transition">Вперед &thinsp; &gt;</button>
+        <button class="button_transition" type="button">&lt; &thinsp; Назад</button>
+        <button class="button_transition" type="button">Вперед &thinsp; &gt;</button>
       </div>
-      <div class="elements_window">
-        <button id="element" class="food_window">
-          <span class="food__img_food">
-            <div class="photo">
-              <img
-                class="size"
-                src="i\sandwiches\beef-club.png"
-                alt="Фото ${data[key].name}"
-              />
-            </div>
-          </span>
-          <p class="size_text">Размер:</p>
+      <div class="elements_window" id="new-elem-window" >
 
-          <div class="food_price_window">
-            <h3>Цена: руб.</h3>
-          </div>
-        </button>
       </div>
       <footer class="result">
         <p>Итого: руб.</p>

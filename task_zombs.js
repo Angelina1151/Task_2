@@ -12,7 +12,42 @@ const getMenuItemHTML = (item) => `<li>
 function loadCategory(category) {
   showData(window.data["menu"].filter((x) => x["category"] == category)); //вытаскиваем JSON
 }
+function windowCategory() {
+  //showWindowData(window.data["sizes"]); //вытаскиваем JSON
+  showWindowData(window.data["breads"]);
+  //showWindowData(window.data["vegetables"]);
+  //showWindowData(window.data["sauces"]);
+  //showWindowData(window.data["fillings"]);
+}
+function showWindowData(data) {
+  let out = "";
+  for (var key in data) {
+    out += ` 
+    <button id="element" class="food_window" type="button">
+          <span class="food__img_food">
+            <div class="photo">
+              <img
+                class="size"
+                src="${
+                  data[key].image.startsWith("/")
+                    ? data[key].image.replace("/", "")
+                    : data[key].image
+                }"
+                alt="Фото ${data[key].name}"
+              />
+            </div>
+          </span>
+          <p class="size_text">${data[key].name}</p>
 
+          <div class="food_price_window">
+            <h3>Цена: ${data[key].price} руб.</h3>
+          </div>
+        </button>
+      </div>
+      `;
+  }
+  document.getElementById("new-elem-window").innerHTML = out;
+}
 function showData(data) {
   // вывод на страницу
   let out = "";
@@ -21,7 +56,7 @@ function showData(data) {
 <div id ="element" class="food">
   <div class="emblems">
     <img class="size_emblems"
-      src="img/103-removebg-preview.png"
+      src="img/103-remove-preview.png"
       alt="Эмблема компании"
     />
   </div>
@@ -84,6 +119,7 @@ function showData(data) {
   document.getElementById("goods-out").innerHTML = out;
 }
 
+
 window.onload = () => {
   //когда у нас загружается страница вызывается эта функция
   loadCategory("sandwiches"); //По умолчанию загружаются сендгвичи
@@ -99,6 +135,36 @@ window.onload = () => {
   document.querySelector("#closeDialog").onclick = function () {
     dialog.close(); // Прячем диалоговое окно
   };
+  for (let el of document.getElementsByClassName("menu_window_link")) {
+    //Получаем список всех ссылок на другие категории и перебираем его
+    el.addEventListener("click", () => windowCategory(el.dataset.category));
+    console.log(el.dataset.category);
+  }
+  (function () {
+    const updateButton = document.getElementById("openDialog");
+    const cancelButton = document.getElementById("closeDialog");
+    const dialog = document.getElementById("newWindow");
+
+    function deleteScroll(dialog) {
+      if (dialog.open) {
+         document.querySelector("body").style.overflowY = "hidden";
+      } else {
+       document.querySelector("body").style.overflowY = "scroll";
+      }
+    }
+
+    // Update button opens a modal dialog
+    updateButton.addEventListener("click", function () {
+      dialog.show();
+      deleteScroll(dialog);
+    });
+
+    // Form cancel button closes the dialog box
+    cancelButton.addEventListener("click", function () {
+      dialog.close();
+      deleteScroll(dialog);
+    });
+  })(); 
 };
 
 //При нажатии на кнопку "В КОРЗИНУ", если категория сходится с "sandwiches",
@@ -108,7 +174,7 @@ window.onload = () => {
 //При добавлении в корзину напитков, у которых есть параметр "volumes" мы должны вывести новое окно с выбором объема,
 // т.к. от объема отличается цена, но этот параметр есть только у "Pepsi".
 
-/*функция вывода нового окна*/
+/*функция вывода нового окна
 let new_window = "";
 for (var key in data) {
   new_window += ``;
@@ -127,11 +193,10 @@ function openRequestedPopup() {
 //alert(openRequestedPopup());
 /*конец ф-ии вывода нового окна*/
 
-/*
 /*функция вывода модального окна 
 const updateButton = document.getElementById('buttonNew');
 const newWindow = document.getElementById("newWindow");
-const selectEl = newWindow.querySelector("nav_alignment");//Метод elem.querySelector(css) возвращает первый элемент,
+const selectEl = newWindow.getElementsByClassName("nav_alignment");//Метод elem.querySelector(css) возвращает первый элемент,
 //соответствующий данному CSS-селектору.
 
 const confirmBtn = newWindow.querySelector("#confirmBtn");
@@ -158,5 +223,4 @@ newWindow.addEventListener("close", function onClose() {
   outputBox.value =
     newWindow.returnValue + " button clicked - " + new Date().toString();
 });
-
 */
