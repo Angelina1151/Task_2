@@ -9,6 +9,7 @@ const getMenuItemHTML = (item) => `<li>
     <a class="menu__link" href="#" data-value="${item.value}">${item.label}</a>
   </li>`;
 */
+
 function loadCategory(category) {
   showData(window.data["menu"].filter((x) => x["category"] == category)); //вытаскиваем JSON
 }
@@ -148,8 +149,10 @@ window.onload = () => {
     function deleteScroll(dialog) {
       if (dialog.open) {
          document.querySelector("body").style.overflowY = "hidden";
+         document.body.style.paddingRight = "17px";
       } else {
        document.querySelector("body").style.overflowY = "scroll";
+       document.body.style.paddingRight = "0px";
       }
     }
 
@@ -192,35 +195,3 @@ function openRequestedPopup() {
 }
 //alert(openRequestedPopup());
 /*конец ф-ии вывода нового окна*/
-
-/*функция вывода модального окна 
-const updateButton = document.getElementById('buttonNew');
-const newWindow = document.getElementById("newWindow");
-const selectEl = newWindow.getElementsByClassName("nav_alignment");//Метод elem.querySelector(css) возвращает первый элемент,
-//соответствующий данному CSS-селектору.
-
-const confirmBtn = newWindow.querySelector("#confirmBtn");
-
-// If a browser doesn't support the dialog, then hide the
-// dialog contents by default.
-if (typeof newWindow.showModal !== "function") {
-  newWindow.hidden = true;
-}
-// "Update details" button opens the <dialog> modally
-updateButton.addEventListener("click", function onOpen() {
-  if (typeof newWindow.showModal === "function") {
-    newWindow.showModal();
-  } else {
-    
-  }
-});
-// "Favorite animal" input sets the value of the submit button
-selectEl.addEventListener("change", function onSelect(e) {
-  confirmBtn.value = selectEl.value;
-});
-// "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
-newWindow.addEventListener("close", function onClose() {
-  outputBox.value =
-    newWindow.returnValue + " button clicked - " + new Date().toString();
-});
-*/
