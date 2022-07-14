@@ -99,6 +99,7 @@ li {
 .food__quantity_food {
   text-transform: uppercase;
   text-align: center;
+  width: 100%;
 }
 .header__text {
   text-align: center;
@@ -120,11 +121,14 @@ li {
   overflow: hidden;
 }
 .basket_png {
+  padding: 0;
+  margin: 0;
   margin-left: 15px;
   filter: drop-shadow(3px 5px 1.7px #d1a600) drop-shadow(4px 10px 1.7px #d1a600)
     drop-shadow(5px 14px 1.7px #d1a600) drop-shadow(6px 14px 1.7px #d1a600)
     drop-shadow(7px 19px 1.7px #d1a600) drop-shadow(8px 22px 1.7px #d1a600)
     drop-shadow(9px 16px 1.7px #d1a600);
+    
 }
 @import url("https://fonts.googleapis.com/css2?family=Piazzolla:opsz,wght@8..30,500&display=swap");
 .basket_text {
@@ -173,6 +177,7 @@ li {
   cursor: pointer;
   text-decoration: none;
   border: none;
+  margin-top: -5px;
 }
 .button_food:hover {
   background-color: #ec580e;
@@ -389,7 +394,6 @@ dialog {
   background-color: #e0e0e0;
   color: #444;
   width: 800px;
-  margin-top: -40px;
 }
 
 .head_window {
@@ -475,8 +479,7 @@ dialog {
 }
 .elements_window {
   display: grid;
-  margin: 15px;
-  justify-content: space-between;
+  margin: 0px 15px 0px 15px;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   align-items: center;
@@ -488,10 +491,10 @@ dialog {
   align-items: center;
   text-align: center;
   justify-content: center;
-  width: 200px;
+  width: 80%;
   height: 90%;
-  padding: 20px;
-  margin: 15px;
+  padding: 10px;
+  margin: 0px 15px;
   border: 0px solid #444;
   background-color: #e0e0e0;
   cursor: pointer;
@@ -563,12 +566,18 @@ dialog {
   height: auto;
   margin: 0 auto;
   margin-left: auto;
+  text-shadow: 0.8px 0px 0px rgba(0, 0, 0, 0.2);
 }
 .food_price_window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #d96746;
   border-top: 2px solid #858585;
-  margin: 0px;
+  margin: 25px 0px;
+  padding-top:15px;
   width: 100%;
+  height: 10%;
 }
 .size_text {
   font-size: 20px;

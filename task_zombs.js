@@ -15,7 +15,7 @@ function loadCategory(category) {
 }
 function windowCategory() {
   //showWindowData(window.data["sizes"]); //вытаскиваем JSON
-  showWindowData(window.data["breads"]);
+  //showWindowData(window.data["breads"]);
   //showWindowData(window.data["vegetables"]);
   //showWindowData(window.data["sauces"]);
   //showWindowData(window.data["fillings"]);
@@ -120,26 +120,28 @@ function showData(data) {
   document.getElementById("goods-out").innerHTML = out;
 }
 
-
+function menuOutput(category) {
+  console.log(window.data[category]);
+  showWindowData(window.data[category]);
+}
 window.onload = () => {
   //когда у нас загружается страница вызывается эта функция
   loadCategory("sandwiches"); //По умолчанию загружаются сендгвичи
-
+  windowCategory("sizes");
   for (let el of document.getElementsByClassName("menu_link")) {
     //Получаем список всех ссылок на другие категории и перебираем его
     el.addEventListener("click", () => loadCategory(el.dataset.category));
   }
   var dialog = document.querySelector("dialog");
   document.querySelector("#openDialog").onclick = function () {
+    menuOutput("sizes");
     dialog.show(); // Показываем диалоговое окно
   };
   document.querySelector("#closeDialog").onclick = function () {
     dialog.close(); // Прячем диалоговое окно
   };
   for (let el of document.getElementsByClassName("menu_window_link")) {
-    //Получаем список всех ссылок на другие категории и перебираем его
-    el.addEventListener("click", () => windowCategory(el.dataset.category));
-    console.log(el.dataset.category);
+    el.addEventListener("click", () => menuOutput(el.dataset.category));
   }
   (function () {
     const updateButton = document.getElementById("openDialog");
@@ -148,26 +150,30 @@ window.onload = () => {
 
     function deleteScroll(dialog) {
       if (dialog.open) {
-         document.querySelector("body").style.overflowY = "hidden";
-         document.body.style.paddingRight = "17px";
+        document.querySelector("body").style.overflowY = "hidden";
+        document.body.style.paddingRight = "17px";
       } else {
-       document.querySelector("body").style.overflowY = "scroll";
-       document.body.style.paddingRight = "0px";
+        document.querySelector("body").style.overflowY = "scroll";
+        document.body.style.paddingRight = "0px";
       }
     }
 
     // Update button opens a modal dialog
     updateButton.addEventListener("click", function () {
       dialog.show();
-      deleteScroll(dialog);
+      deleteScroll(
+        dialog
+      ); /*при открытии диалогового окна удаляет scroll у body и добавляет правый padding,
+      чтобы body не смещался
+      */
     });
 
     // Form cancel button closes the dialog box
     cancelButton.addEventListener("click", function () {
       dialog.close();
-      deleteScroll(dialog);
+      deleteScroll(dialog); //при закрытии диалогового окна возвращает scroll у body и
     });
-  })(); 
+  })();
 };
 
 //При нажатии на кнопку "В КОРЗИНУ", если категория сходится с "sandwiches",
