@@ -12,8 +12,9 @@ body .newWindow {
   display: grid;
   height: 900px;
   width: 900px;
-  padding: 0px;
+  padding: 0px 0px 0px 15px;
   margin: 0 auto;
+
 }
 .menu_link {
   color: #444;
@@ -178,6 +179,8 @@ li {
   text-decoration: none;
   border: none;
   margin-top: -5px;
+  margin-bottom: 0px;
+  margin-top: 15px;
 }
 .button_food:hover {
   background-color: #ec580e;
@@ -187,11 +190,6 @@ li {
 .emblems {
   margin: 0px;
   text-align: center;
-}
-.food__button_food {
-  text-align: center;
-  margin-bottom: 0px;
-  margin-top: 15px;
 }
 .button {
   font-family: "Roboto";
@@ -394,6 +392,8 @@ dialog {
   background-color: #e0e0e0;
   color: #444;
   width: 800px;
+  min-height: 648px;
+  max-height: 648px;
 }
 
 .head_window {
@@ -485,6 +485,7 @@ dialog {
   align-items: center;
   overflow-y: scroll;
   max-height: 400px;
+  min-height: 400px;
 }
 .food_window {
   display: block;
@@ -492,13 +493,14 @@ dialog {
   text-align: center;
   justify-content: center;
   width: 80%;
-  height: 90%;
+  height: 325px;
   padding: 10px;
-  margin: 0px 15px;
+  margin: 0px 15px 15px 15px;
   border: 0px solid #444;
   background-color: #e0e0e0;
   cursor: pointer;
   text-decoration: none;
+  margin-top: 20px;
 }
 .result {
   background-color: white;
@@ -574,19 +576,20 @@ dialog {
   align-items: center;
   color: #d96746;
   border-top: 2px solid #858585;
-  margin: 25px 0px;
-  padding-top:15px;
+  margin-bottom: 15px;
+  padding-top: 11px;
   width: 100%;
-  height: 10%;
+  height: 30px;
 }
 .size_text {
   font-size: 20px;
   font-weight: bold;
   color: #444;
-  min-height: 60px;
+  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 15px 0;
 }
 .food_price_window h3 {
   display: block;

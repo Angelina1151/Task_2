@@ -10,51 +10,30 @@ const getMenuItemHTML = (item) => `<li>
   </li>`;
 */
 
-function loadCategory(category) {
-  showData(window.data["menu"].filter((x) => x["category"] == category)); //вытаскиваем JSON
-}
-function windowCategory() {
-  //showWindowData(window.data["sizes"]); //вытаскиваем JSON
-  //showWindowData(window.data["breads"]);
-  //showWindowData(window.data["vegetables"]);
-  //showWindowData(window.data["sauces"]);
-  //showWindowData(window.data["fillings"]);
-}
-function showWindowData(data) {
-  let out = "";
-  for (var key in data) {
-    out += ` 
-    <button id="element" class="food_window" type="button">
-          <span class="food__img_food">
-            <div class="photo">
-              <img
-                class="size"
-                src="${
-                  data[key].image.startsWith("/")
-                    ? data[key].image.replace("/", "")
-                    : data[key].image
-                }"
-                alt="Фото ${data[key].name}"
-              />
-            </div>
-          </span>
-          <p class="size_text">${data[key].name}</p>
+// function addToCart(){
+//   let name = this.attr("data-name");
+//   cart[name] = 1;
+//   console.log(cart);
+// }
 
-          <div class="food_price_window">
-            <h3>Цена: ${data[key].price} руб.</h3>
-          </div>
-        </button>
-      </div>
-      `;
+function loadCategory(category) {
+  showData(window.data["menu"].filter((x) => x["category"] == category));
+}
+function deleteScroll(dialog) {
+  if (dialog.open) {
+    document.querySelector("body").style.overflowY = "hidden";
+    document.body.style.paddingRight = "17px";
+  } else {
+    document.querySelector("body").style.overflowY = "scroll";
+    document.body.style.paddingRight = "0px";
   }
-  document.getElementById("new-elem-window").innerHTML = out;
 }
 function showData(data) {
   // вывод на страницу
   let out = "";
   for (var key in data) {
     out += `
-<div id ="element" class="food">
+<div  class="food">
   <div class="emblems">
     <img class="size_emblems"
       src="img/103-remove-preview.png"
@@ -94,16 +73,18 @@ function showData(data) {
     <div class="quantity_food"><h6>Количество</h6></div>
     
     <div class="quantity_button">
-      <button class="button">
+      <button class="button" id="minus" type="button"  data-id ="${
+        data[key].name
+      }">
         <img class="minus"
           src="img/minus.png"
-          width="12"
-          height="12"
           alt="Знак минуса"
         />
       </button>
-      <input class="counter" name="counter" type="text" value="1" />
-      <button class="button">
+      <input class="counter" name="counter" type="text" value="1" id="input" />
+      <button class="button" id="plus" type="button" data-id ="${
+        data[key].name
+      }">
         <img class="plus"
           src="img/plus.png"
           alt="Знак плюса"
@@ -111,93 +92,143 @@ function showData(data) {
       </button>
     </div>
   </div>
-  <div class="food__button_food" id="button" type="button">
-  <button id="openDialog" class="button_food">В корзину</button>
-</div>
+  <button  data-name="${
+    data[key].name
+  }"  class="button_food" type ="button">В корзину</button>
 </div>
 `;
   }
-  document.getElementById("goods-out").innerHTML = out;
+  let dialog = document.querySelector("dialog");
+  let parent = document.getElementById("goods-out");
+  parent.innerHTML = out;
+
+  for (let btn of parent.getElementsByClassName("button_food")) {
+    btn.addEventListener("click", () => {
+      menuOutput("sizes");
+      dialog.show(); // Показываем диалоговое окно
+      deleteScroll(dialog);
+    });
+  }
+  let counterBtns = parent.getElementsByClassName("button");
+  let counterInputs = parent.getElementsByClassName("counter");
+  for (let k = 0; k < counterInputs.length; k++) {
+    let minusbtn = counterBtns[k * 2];// так как у нас две кнопки с классом button
+    let plusbtn = counterBtns[k * 2 + 1];
+    let input = counterInputs[k];
+
+    minusbtn.addEventListener("click", () => {
+      if (input.value > 1) {
+        input.value--;
+      }
+    });
+    plusbtn.addEventListener("click", () => {
+      input.value++;
+    });
+  }
+   const cancelButton = document.getElementById("closeDialog");
+   cancelButton.addEventListener("click", function () {
+     dialog.close();
+     deleteScroll(dialog); //при закрытии модального окна возвращает scroll у body
+   });
+}
+
+function showWindowData(data) {
+  let out = "";
+  for (var key in data) {
+    out += ` 
+    <button class="food_window" type="button">
+          <span class="food__img_food">
+            <div class="photo">
+              <img
+                class="size"
+                src="${
+                  data[key].image.startsWith("/")
+                    ? data[key].image.replace("/", "")
+                    : data[key].image
+                }"
+                alt="Фото ${data[key].name}"
+              />
+            </div>
+          </span>
+          <p class="size_text">${data[key].name}</p>
+
+          <div class="food_price_window">
+            <h3>Цена: ${data[key].price} руб.</h3>
+          </div>
+        </button>
+      </div>
+      `;
+  }
+  document.getElementById("new-elem-window").innerHTML = out;
 }
 
 function menuOutput(category) {
-  console.log(window.data[category]);
   showWindowData(window.data[category]);
 }
+// function done() {
+//   showWindowDone(window.data[category]);
+// }
+// function showWindowDone() {
+//   let out = "";
+//   for (var key in data) {
+//     out += `
+//      <span class="food__img_food">
+//             <div class="photo">
+//               <img
+//                 class="size"
+//                 src="i/result_sandwich.jpg"
+//                 alt="Фото ${data[key].name}"
+//               />
+//             </div>
+//           </span>
+//            <div>
+//                 <p>Ваш сэндвич готов!</p>
+//                 <p>Размер:${data[key].sizes}</p>
+//                 <p>Хлеб:${data[key].breads}</p>
+//                 <p>Овощи:${data[key].vegetables}</p>
+//                 <p>Соусы:${data[key].sauces}</p>
+//                 <p>Начинка:${data[key].fillings}</p>
+//           </div>
+//           <div>
+//              <p class="size_text">${data[key].name}</p>
+//           </div> `;
+//   }
+//   document.getElementById("result_window").innerHTML = out;
+// }
+
+// function toCart(){
+//   let out = "";
+//   for (var key in data) {
+//     out += `
+//  <div class="body_text"><h5>Название Количество</h5></div>
+
+//           <div class="body_sum"><h5>Итого:${data[key].price} руб.</h5></div>
+//           <div class="button_basket">
+//             <button class="button_text">Оформить заказ</button>
+//           </div>`;
+//   }
+//   document.getElementById("cart").innerHTML = out;
+// }
+// function saveData() {
+//   localStorage.setItem();
+// }
 window.onload = () => {
   //когда у нас загружается страница вызывается эта функция
-  loadCategory("sandwiches"); //По умолчанию загружаются сендгвичи
-  windowCategory("sizes");
+  loadCategory("sandwiches"); //По умолчанию загружаются сендвичи
+
   for (let el of document.getElementsByClassName("menu_link")) {
     //Получаем список всех ссылок на другие категории и перебираем его
     el.addEventListener("click", () => loadCategory(el.dataset.category));
   }
-  var dialog = document.querySelector("dialog");
-  document.querySelector("#openDialog").onclick = function () {
-    menuOutput("sizes");
-    dialog.show(); // Показываем диалоговое окно
-  };
-  document.querySelector("#closeDialog").onclick = function () {
-    dialog.close(); // Прячем диалоговое окно
-  };
+
+  // при нажатии на кнопки будут отрисовываться элементы из data.js
   for (let el of document.getElementsByClassName("menu_window_link")) {
     el.addEventListener("click", () => menuOutput(el.dataset.category));
   }
-  (function () {
-    const updateButton = document.getElementById("openDialog");
-    const cancelButton = document.getElementById("closeDialog");
-    const dialog = document.getElementById("newWindow");
-
-    function deleteScroll(dialog) {
-      if (dialog.open) {
-        document.querySelector("body").style.overflowY = "hidden";
-        document.body.style.paddingRight = "17px";
-      } else {
-        document.querySelector("body").style.overflowY = "scroll";
-        document.body.style.paddingRight = "0px";
-      }
-    }
-
-    // Update button opens a modal dialog
-    updateButton.addEventListener("click", function () {
-      dialog.show();
-      deleteScroll(
-        dialog
-      ); /*при открытии диалогового окна удаляет scroll у body и добавляет правый padding,
-      чтобы body не смещался
-      */
-    });
-
-    // Form cancel button closes the dialog box
-    cancelButton.addEventListener("click", function () {
-      dialog.close();
-      deleteScroll(dialog); //при закрытии диалогового окна возвращает scroll у body и
-    });
-  })();
 };
-
 //При нажатии на кнопку "В КОРЗИНУ", если категория сходится с "sandwiches",
 //то мы выводим поверх новое окно, в котором можем бафнуть наш сэндвич, выбрать размер, хлебушек,соусы, доп. ингридиенты,
 //когда наш сэндвич готов, то мы можем выбрать кол-во и добавить в  корзину, при добавлении ингридиентов цена возрастает,
 // к основной цене добавляем цену ингридиентов
 //При добавлении в корзину напитков, у которых есть параметр "volumes" мы должны вывести новое окно с выбором объема,
-// т.к. от объема отличается цена, но этот параметр есть только у "Pepsi".
-
-/*функция вывода нового окна
-let new_window = "";
-for (var key in data) {
-  new_window += ``;
-}
-let windowObjectReference;
-let windowFeatures =
-  "left=100,top=100,width=814,height=615,location=no,directories=no,status=no,resizable=no,scrollbars=no,menubar=no,toolbar=no";
-
-function openRequestedPopup() {
-  windowObjectReference = window.open(
-    "new_window.html",
-    "new_window",
-    windowFeatures
-  );
-}
-//alert(openRequestedPopup());
-/*конец ф-ии вывода нового окна*/
+// т.к. от объема отличается цена, но этот параметр есть только у "Pepsi"
