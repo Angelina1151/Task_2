@@ -1,21 +1,3 @@
-/*console.log(window.data);
-
-const menuItems = [{
-  label: "Sandwiches",
-  "value": "...."
-}]
-
-const getMenuItemHTML = (item) => `<li>
-    <a class="menu__link" href="#" data-value="${item.value}">${item.label}</a>
-  </li>`;
-*/
-
-// function addToCart(){
-//   let name = this.attr("data-name");
-//   cart[name] = 1;
-//   console.log(cart);
-// }
-
 function loadCategory(category) {
   showData(window.data["menu"].filter((x) => x["category"] == category));
 }
@@ -227,7 +209,7 @@ window.onload = () => {
   }
 };
 //При нажатии на кнопку "В КОРЗИНУ", если категория сходится с "sandwiches",
-//то мы выводим поверх новое окно, в котором можем бафнуть наш сэндвич, выбрать размер, хлебушек,соусы, доп. ингридиенты,
+//то мы выводим модальное окно, в котором можем бафнуть наш сэндвич, выбрать размер, хлебушек,соусы, доп. ингридиенты,
 //когда наш сэндвич готов, то мы можем выбрать кол-во и добавить в  корзину, при добавлении ингридиентов цена возрастает,
 // к основной цене добавляем цену ингридиентов
 //При добавлении в корзину напитков, у которых есть параметр "volumes" мы должны вывести новое окно с выбором объема,
